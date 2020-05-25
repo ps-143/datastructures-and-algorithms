@@ -1,5 +1,5 @@
 # Ignore vim backup files and swap files
-*.*~
+*~
 *.swp
 
 # Ignore executables and obj files
