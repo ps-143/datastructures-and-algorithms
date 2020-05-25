@@ -12,8 +12,8 @@ int main() {
 	int A[]={0, 9, 8, 7, 6, 5, 4, 3, 2, 1};
 	InsertionSort(A, 10);
 	printArr(A, 10);	
-	int ind=BinarySearch(A, 0, 9, 5);
-	printf("%d\n", ind);
+	//int ind=BinarySearch(A, 0, 9, 5);
+	//printf("%d\n", ind);
 	return 0;
 }
 
