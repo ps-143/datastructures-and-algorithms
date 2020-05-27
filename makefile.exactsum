@@ -1,0 +1,12 @@
+ExactSumMain : ExactSumMain.o MergeSort.o ExactSum.o
+	gcc -o ExactSumMain ExactSumMain.o MergeSort.o ExactSum.o
+
+ExactSumMain.o : ExactSumMain.c MergeSort.h ExactSum.h
+	gcc -c -g ExactSumMain.c
+
+ExactSum.o : ExactSum.c ExactSum.h MergeSort.h
+	gcc -c -g ExactSum.c
+
+MergeSort.o : MergeSort.c MergeSort.h
+	gcc -c -g MergeSort.c
+

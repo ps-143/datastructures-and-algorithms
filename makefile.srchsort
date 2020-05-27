@@ -12,3 +12,5 @@ InsertionSort.o : InsertionSort.c InsertionSort.h
 
 MergeSort.o : MergeSort.c MergeSort.h
 	gcc -c -g MergeSort.c
+
+
