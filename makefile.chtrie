@@ -1,2 +1,9 @@
-chtrie : chtrie.c
-	gcc -o chtrie chtrie.c
+chtriemain : chtriemain.o chtrie.o
+	gcc -o chtriemain chtriemain.o chtrie.o
+
+chtriemain.o : chtriemain.c chtrie.h
+	gcc -c -g chtriemain.c
+
+chtrie.o : chtrie.c chtrie.h
+	gcc -c -g chtrie.c
+
