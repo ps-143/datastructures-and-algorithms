@@ -15,7 +15,7 @@ struct chTrie* new_chTrie() {
 		new->characters[i] = NULL;
 	}
 	new->freq = 0;
-	new->isEnd = 1;
+	new->isEnd = 0;
 	return new;
 }
 
@@ -27,11 +27,11 @@ void add_words_fs(char s[], struct chTrie* root) {
 				t->characters[s[i]-'a'] = new_chTrie();
 			}
 			t->freq++;
-			t->isEnd = 0;
 			t = t->characters[s[i]-'a'];
 		}
 		else {
 			t->freq++;
+			t->isEnd = 1;
 			t = root;
 		}
 	}
@@ -58,9 +58,12 @@ void print(struct chTrie* root) {
 	print_words(root, str, level);
 }
 
+//int w_search(struct chTrie* t, char str[], length) {
+
+
 int main() {
 	struct chTrie *root = new_chTrie();
-	add_words_fs("the that awesome amazing", root);
+	add_words_fs("the that awesome amazing part parts", root);
 	print(root);
 	return 0;
 }
