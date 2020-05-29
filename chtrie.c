@@ -35,6 +35,7 @@ void add_words_fs(char s[], struct chTrie* root) {
 			t = root;
 		}
 	}
+	t->isEnd = 1;
 	t->freq++;
 }
 
@@ -58,13 +59,32 @@ void print(struct chTrie* root) {
 	print_words(root, str, level);
 }
 
-//int w_search(struct chTrie* t, char str[], length) {
+int w_search(struct chTrie* t, char str[], int length) {
+	for(int i = 0; i < length; i++) {
+		if(t->characters[str[i] - 'a'] == NULL) {
+			return 0;
+		}
+		t = t->characters[str[i] - 'a'];
+	}
+	return t->freq;
+}
 
+float probability(struct chTrie* t, char stub[], int lenOfStub, char word[], int length) {
+	float prob;
+	float freqOfStub = w_search(t, stub, lenOfStub);
+	float freqOfWord = w_search(t, word, length);
+	if(freqOfStub) {
+		prob = freqOfWord/freqOfStub;
+	}
+	return prob;
+}
 
 int main() {
 	struct chTrie *root = new_chTrie();
-	add_words_fs("the that awesome amazing part parts", root);
+	add_words_fs("the ther there that awesome amazing part parts", root);
 	print(root);
+	printf("%d\n", w_search(root, "the", 3));
+	printf("%0.2f\n", probability(root, "the", 3, "ther", 4));
 	return 0;
 }
 
