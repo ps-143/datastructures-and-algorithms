@@ -1,8 +1,10 @@
+#Ignore files without extensions
+*
+!*.*
+
 # Ignore vim backup files and swap files
 *~
 *.swp
 
 # Ignore executables and obj files
 *.o
-main
-

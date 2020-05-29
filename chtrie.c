@@ -35,12 +35,13 @@ void add_words_fs(char s[], struct chTrie* root) {
 			t = root;
 		}
 	}
+	t->freq++;
 }
 
 void print_words(struct chTrie* root, char str[], int level) {
 	if(root->isEnd == 1) {
 		str[level] = '\0';
-		printf("%s\n", str);
+		printf("%d %s\n", root->freq, str);
 	}
 	struct chTrie* t = root;
 	for(int i = 0; i<26; i++) {
@@ -59,7 +60,7 @@ void print(struct chTrie* root) {
 
 int main() {
 	struct chTrie *root = new_chTrie();
-	add_words_fs("the that", root);
+	add_words_fs("the that awesome amazing", root);
 	print(root);
 	return 0;
 }
