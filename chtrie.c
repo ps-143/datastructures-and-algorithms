@@ -1,13 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "chtrie.h"
 
 #define ALPHABETSIZE 26
-
-struct chTrie {
-	struct chTrie *characters[ALPHABETSIZE];
-	int freq;
-	int isEnd;
-};
 
 struct chTrie* new_chTrie() {
 	struct chTrie* new  = (struct chTrie*)malloc(sizeof(struct chTrie));
@@ -77,14 +72,5 @@ float probability(struct chTrie* t, char stub[], int lenOfStub, char word[], int
 		prob = freqOfWord/freqOfStub;
 	}
 	return prob;
-}
-
-int main() {
-	struct chTrie *root = new_chTrie();
-	add_words_fs("the ther there that awesome amazing part parts", root);
-	print(root);
-	printf("%d\n", w_search(root, "the", 3));
-	printf("%0.2f\n", probability(root, "the", 3, "ther", 4));
-	return 0;
 }
 
