@@ -32,11 +32,18 @@ void maxHeap(int A[], int n) {
     }
 }
 
+void heapsort(int A[], int n) {
+    maxHeap(A, n);
+    for(int i = n - 1; i > 0; i--) {
+        swap(&A[i], &A[0]);
+        heapify(A, 0, i);
+    }
+}
+
 int main() {
-    int a[] = {27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
+    int a[] = {9, 8, 7, 6, 5, 4, 3, 2, 1};
     int n = sizeof(a)/sizeof(int);
-    cout << n << endl;
-    maxHeap(a, n);
+    heapsort(a, n);
     for(int i = 0; i < n; i++) {
         cout << a[i] << " ";
     }

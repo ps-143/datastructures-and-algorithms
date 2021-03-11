@@ -8,3 +8,5 @@
 
 # Ignore executables and obj files
 *.o
+*.out
+

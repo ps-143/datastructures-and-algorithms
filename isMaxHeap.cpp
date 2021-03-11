@@ -21,8 +21,8 @@ bool isMaxHeap(int A[], int n) {
 }
 
 int main() {
-    int a[] = {23, 17, 14, 6, 13, 10, 1, 5, 7, 12};
-    int x[] = {5, 4, 5, 3, 3};
+    int a[] = {23, 17, 14, 7, 13, 10, 1, 5, 6, 12};
+    int x[] = {10, 4, 7, 5, 3, 6, 2};
     cout << sizeof(a) << endl;
     cout << isMaxHeap(a, sizeof(a)/sizeof(int)) << endl;
     cout << isMaxHeap(x, sizeof(x)/sizeof(int)) << endl;
